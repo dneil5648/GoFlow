@@ -8,6 +8,7 @@ import (
 )
 
 var supportedModels = map[string]bool{
+    "gpt-4o":              true,
     "gpt-4":              true,
     "gpt-4-1106-preview": true,
     "gpt-4-vision-preview": true,
@@ -72,6 +73,8 @@ func validateModel(model string) error {
 // Update getModelMaxTokens to return int
 func getModelMaxTokens(model string) int64 {
     switch model {
+    case "gpt-4o":
+        return 8192
     case "gpt-4":
         return 8192
     case "gpt-4-1106-preview":
