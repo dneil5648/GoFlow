@@ -43,6 +43,7 @@ func (wf *WorkFlow) Run(ctx context.Context) (interface{}, error) {
         wf.Logger.LogItem(wf.Name, fmt.Sprintf("Error generating response: %v", err))
         return nil, fmt.Errorf("LLM generation failed: %w", err)
     }
+    fmt.Printf("RAW RESPONSE: %v\n", response)
     
     // Parse the response based on workflow type
     switch wf.Type {
